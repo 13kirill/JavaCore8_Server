@@ -16,20 +16,23 @@ public class Client {
              PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
 
-            out.println("Kirill");
-            String name = in.readLine();
-            System.out.println(name);
 
-            out.println("coding or something else?");
-            String codingOrRelax = in.readLine();
-            System.out.println(codingOrRelax);
+                out.println("Kirill");
+                String name = in.readLine();
+                System.out.println(name);
+            while (clientSocket.isClosed()) {
+                out.println("coding or something else?");
+                String codingOrRelax = in.readLine();
+                System.out.println(codingOrRelax);
 
-            String scanNL = scan.nextLine();
+                String scanNL = scan.nextLine();
 
-                    out.println(scanNL);
-                    scanNL = in.readLine();
-                    System.out.println(scanNL);
-
+                out.println(scanNL);
+                scanNL = in.readLine();
+                System.out.println(scanNL);
+//                if(clientSocket.isClosed())
+//                    break;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
